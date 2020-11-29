@@ -9,7 +9,7 @@
 
   const updateContext = (valueName) => {
     return myContext.update((store) => {
-      store[`${valueName}`] = inputValue;
+      store[valueName] = inputValue;
       return store;
     });
   };
