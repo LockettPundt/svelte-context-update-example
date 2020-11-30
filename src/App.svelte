@@ -7,6 +7,7 @@
     value: 'some Initial Value',
     anotherValue: 'some other initial value',
     lastValue: 'the last initial value',
+    active: false,
   });
 
   setContext('value', contextObject);

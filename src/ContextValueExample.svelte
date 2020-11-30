@@ -13,12 +13,28 @@
       return store;
     });
   };
+  const activeToggle = () => {
+    return myContext.update((store) => {
+      store.active = !store.active;
+      return store;
+    });
+  };
 </script>
 
-<h1>1. {$myContext?.value}</h1>
+<style>
+  h1.active {
+    color: green;
+  }
+</style>
+
+<h1 class:active={$myContext.active}>1. {$myContext?.value}</h1>
 <h1>2. {$myContext?.anotherValue}</h1>
 <h1>3. {$myContext?.lastValue}</h1>
 <input bind:value={inputValue} placeholder="edit context values" />
+<label name="active">
+  click to toggle active state.
+  <input type="checkbox" htmlfor="active" on:click={activeToggle} />
+</label>
 <button on:click={() => updateContext('value')}>update value One</button>
 <button on:click={() => updateContext('anotherValue')}>update value Two</button>
 <button on:click={() => updateContext('lastValue')}>update value Three</button>
